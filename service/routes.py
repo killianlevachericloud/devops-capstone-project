@@ -61,7 +61,21 @@ def create_accounts():
 # LIST ALL ACCOUNTS
 ######################################################################
 
-# ... place you code here to LIST accounts ...
+@app.route("/accounts", methods=["GET"])
+def get_accounts():
+    """
+    Returns all Account
+    This endpoint will read an Account based the account_id that is requested
+    """
+    app.logger.info("Requesting all accounts")
+    accounts = Account.all()
+
+    ret = []
+    for account in accounts:
+        ret.append(account.serialize())
+
+    return ret, status.HTTP_200_OK
+    
 
 
 ######################################################################

@@ -140,6 +140,20 @@ class TestAccountService(TestCase):
         data = resp.get_json()
         self.assertEqual(data["name"], account.name)
 
+    def test_list_accounts(self):
+        """It should return all Accounts """
+        total_number_of_accounts = 2
+        accounts = self._create_accounts(total_number_of_accounts)[0]
+        
+        resp = self.client.get(
+            f"{BASE_URL}", content_type="application/json"
+        )
+
+        self.assertEqual(resp.status_code, status.HTTP_200_OK)
+        data = resp.get_json()
+        
+        self.assertEqual(len(data), total_number_of_accounts)
+
     def test_account_not_found(self):
         """It should raise an exception because can't find an account """
         
