@@ -172,7 +172,7 @@ class TestAccountService(TestCase):
             f"{BASE_URL}/{account.id}", content_type="application/json"
         )
 
-        self.assertEqual(resp.status_code, status.HTTP_200_OK)
+        self.assertEqual(resp.status_code, status.HTTP_204_NO_CONTENT)
         
         resp = self.client.get(
             f"{BASE_URL}/{account.id}", content_type="application/json"
@@ -205,5 +205,5 @@ class TestAccountService(TestCase):
         resp = self.client.get(
             f"{BASE_URL}/{0}", content_type="application/json"
         )
-
+        print(resp.status_code)
         self.assertEqual(resp.status_code, status.HTTP_404_NOT_FOUND)

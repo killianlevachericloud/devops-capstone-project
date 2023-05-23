@@ -135,7 +135,7 @@ def remove_account(account_id):
 
     account.delete()
 
-    return account.serialize(), status.HTTP_200_OK
+    return account.serialize(), status.HTTP_204_NO_CONTENT
 
 
 ######################################################################
