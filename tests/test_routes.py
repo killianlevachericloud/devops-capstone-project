@@ -183,7 +183,7 @@ class TestAccountService(TestCase):
     def test_update_account(self):
         """It should Create a new Account"""
         account = self._create_accounts(1)[0]
-       
+
         new_account_name = "New Name"
         account.name = new_account_name
 
