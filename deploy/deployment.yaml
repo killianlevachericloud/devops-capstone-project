@@ -18,7 +18,7 @@ spec:
         app: accounts
     spec:
       containers:
-      - image: us.icr.io/sn-labs-killiansss/accounts:1
+      - image: 
         name: accounts
         resources: {}
         env:
@@ -40,4 +40,3 @@ spec:
                 name: postgresql
                 key: database-user
 status: {}
-
